@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "pnpm --filter @common build && pnpm --filter auth-service build"
+  },
+  "dependencies": {
+    "typeorm": "^0.3.24",
+    "reflect-metadata": "^0.2.2",
+    "class-transformer": "^0.5.1"
+  }
+}
