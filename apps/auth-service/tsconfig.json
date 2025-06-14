@@ -13,7 +13,9 @@
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["jest", "node"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "**/*.spec.ts", "**/*.test.ts"],
+  "exclude": ["node_modules", "dist"]
 }

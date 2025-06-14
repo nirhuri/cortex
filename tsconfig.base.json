@@ -9,12 +9,11 @@
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "@common/*": ["libs/common/src/*"],
       "@events/*": ["libs/events/src/*"],
-      "@auth/*": ["apps/auth-service/src/auth/*"]
+      "@auth/*": ["apps/auth-service/src/*"]
     }
   }
 }

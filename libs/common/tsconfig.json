@@ -3,7 +3,9 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": ["jest", "node"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "**/*.spec.ts"],
+  "exclude": ["node_modules", "dist"]
 }

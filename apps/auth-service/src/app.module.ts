@@ -2,11 +2,11 @@ import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "./auth/auth.module";
-import { User } from "./auth/user.entity";
+import { User } from "./auth/entities/user.entity";
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: ".env" }),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: "localhost",
@@ -20,4 +20,4 @@ import { User } from "./auth/user.entity";
     AuthModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }
