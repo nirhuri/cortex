@@ -6,15 +6,7 @@ import { cookies } from "next/headers";
 
 export async function loginAction(formData: LoginDto) {
   try {
-    console.log("🔄 Sending login request...", formData);
     const response = await login(formData);
-
-    console.log("✅ Login response received:", response);
-    console.log(
-      "🔑 Access token:",
-      response.accessToken ? "Present" : "Missing"
-    );
-
     const { accessToken } = response;
 
     const cookieStore = await cookies();
@@ -25,8 +17,6 @@ export async function loginAction(formData: LoginDto) {
       path: "/",
       maxAge: 60 * 60 * 24 * 7, // week in seconds
     });
-
-    console.log("🍪 Cookie set successfully");
   } catch (error) {
     console.error("❌ Login failed:", error);
     throw new Error(
@@ -37,14 +27,7 @@ export async function loginAction(formData: LoginDto) {
 
 export async function registerAction(formData: SignupDto) {
   try {
-    console.log("🔄 Sending signup request...", formData);
     const response = await signup(formData);
-
-    console.log("✅ Signup response received:", response);
-    console.log(
-      "🔑 Access token:",
-      response.accessToken ? "Present" : "Missing"
-    );
 
     const { accessToken } = response;
 
@@ -54,12 +37,24 @@ export async function registerAction(formData: SignupDto) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
     });
-
-    console.log("🍪 Cookie set successfully");
   } catch (error) {
     console.error("❌ Registration failed:", error);
     throw new Error(
       "Registration failed. Please check your details and try again."
     );
+  }
+}
+
+export async function logoutAction() {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set("accessToken", "", {
+      httpOnly: true,
+      path: "/",
+      maxAge: 0,
+    });
+  } catch (error) {
+    console.error("❌ Logout failed:", error);
+    throw new Error("Logout failed. Please try again.");
   }
 }
