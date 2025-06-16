@@ -48,13 +48,13 @@ export default function SignupPage() {
             onSubmit={handleSubmit(onSubmit)}
             className={
               errors.email || errors.password || errors.fullName
-                ? "space-y-1"
-                : "space-y-6"
+                ? "space-y-0.5"
+                : "space-y-3"
             }
           >
             <label
               htmlFor="fullName"
-              className="block text-sm text-gray-500 font-medium mb-1 pl-1"
+              className="block text-sm text-gray-500 font-medium mb-1 pt-4"
             >
               Full Name
             </label>
@@ -65,14 +65,14 @@ export default function SignupPage() {
               {...register("fullName", { required: "Full name is required" })}
             />
             {errors.fullName && (
-              <p className="text-xs text-red-500 mt-1 pl-1">
+              <p className="text-xs text-red-500 pt-1">
                 {errors.fullName.message}
               </p>
             )}
 
             <label
               htmlFor="email"
-              className="block text-sm text-gray-500 font-medium mb-1 pl-1"
+              className="block text-sm text-gray-500 font-medium mb-1 pt-4"
             >
               Email
             </label>
@@ -83,14 +83,14 @@ export default function SignupPage() {
               {...register("email", { required: "Email is required" })}
             />
             {errors.email && (
-              <p className="text-xs text-red-500 mt-1 pl-1">
+              <p className="text-xs text-red-500 pt-1">
                 {errors.email.message}
               </p>
             )}
 
             <label
               htmlFor="password"
-              className="block text-sm text-gray-500 font-medium mb-1 pl-1"
+              className="block text-sm text-gray-500 font-medium mb-1 pt-4"
             >
               Password
             </label>
@@ -101,14 +101,16 @@ export default function SignupPage() {
               {...register("password", { required: "Password is required" })}
             />
             {errors.password && (
-              <p className="text-xs text-red-500 mt-1 pl-1">
+              <p className="text-xs text-red-500 pt-1">
                 {errors.password.message}
               </p>
             )}
 
-            <Button type="submit" className="w-full mt-4">
-              {isSubmitting ? "Signing up..." : "Sign Up"}
-            </Button>
+            <div className="pt-6">
+              <Button type="submit" className="w-full">
+                {isSubmitting ? "Signing up..." : "Sign Up"}
+              </Button>
+            </div>
           </form>
 
           <p className="text-sm text-muted-foreground mt-6 text-center">

@@ -44,7 +44,7 @@ export default function LoginPage() {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className={
-              errors.email || errors.password ? "space-y-1" : "space-y-6"
+              errors.email || errors.password ? "space-y-0.5" : "space-y-3"
             }
           >
             <label
@@ -81,9 +81,11 @@ export default function LoginPage() {
                 {errors.password.message}
               </p>
             )}
-            <Button type="submit" className="w-full mt-4">
-              {isSubmitting ? "Logging in..." : "Log In"}
-            </Button>
+            <div className="pt-4">
+              <Button type="submit" className="w-full mt-4">
+                {isSubmitting ? "Logging in..." : "Log In"}
+              </Button>
+            </div>
           </form>
 
           <p className="text-sm text-muted-foreground mt-6 text-center">
