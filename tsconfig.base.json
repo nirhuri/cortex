@@ -10,9 +10,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
+    "types": ["node"],
     "paths": {
       "@common/*": ["libs/common/src/*"],
       "@events/*": ["libs/events/src/*"],
+      "@shared/*": ["libs/shared/*"],
       "@auth/*": ["apps/auth-service/src/*"]
     }
   }
