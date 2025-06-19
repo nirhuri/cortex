@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  postgres:
+  auth-postgres:
     image: postgres:15
     container_name: auth_postgres
     ports:
@@ -12,6 +12,18 @@ services:
       POSTGRES_DB: auth_db
     volumes:
       - auth_pgdata:/var/lib/postgresql/data
+
+  documents_postgres:
+    image: postgres:15
+    container_name: documents_postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: document_user
+      POSTGRES_PASSWORD: document_pass
+      POSTGRES_DB: document_db
+    volumes:
+      - documents_pgdata:/var/lib/postgresql/data
 
   redis:
     image: redis:7

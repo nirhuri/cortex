@@ -13,6 +13,7 @@ const config: Config = {
     modulePaths: ['<rootDir>'],
     moduleNameMapper: {
         '^@auth/(.*)$': '<rootDir>/apps/auth-service/src/$1',
+        '^@docs/(.*)$': '<rootDir>/apps/document-service/src/$1',
         '^@common/(.*)$': '<rootDir>/libs/common/src/$1',
         '^@events/(.*)$': '<rootDir>/libs/events/src/$1',
     },

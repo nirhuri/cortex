@@ -15,7 +15,9 @@
       "@common/*": ["libs/common/src/*"],
       "@events/*": ["libs/events/src/*"],
       "@shared/*": ["libs/shared/*"],
-      "@auth/*": ["apps/auth-service/src/*"]
+      "@auth/*": ["apps/auth-service/src/*"],
+      "@docs/*": ["apps/document-service/src/*"],
+      "@gateway/*": ["apps/gateway-service/src/*"]
     }
   }
 }
